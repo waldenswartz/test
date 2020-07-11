@@ -1,1 +1,0 @@
-ls notfile || echo bla bla bla ; echo 0

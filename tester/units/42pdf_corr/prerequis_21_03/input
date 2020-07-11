@@ -1,1 +1,0 @@
-ls / > tmp_ls.txt && <tmp_ls.txt cat -e >> tmp_ls.txt

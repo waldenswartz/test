@@ -1,1 +1,0 @@
-echo "No dollar character" 1>&2 | cat -e

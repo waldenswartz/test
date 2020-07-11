@@ -1,1 +1,0 @@
-test -b /dev/disk0 && echo ok || echo wrong

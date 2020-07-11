@@ -1,1 +1,0 @@
-a=hello b=world; b=42 echo _ && echo 

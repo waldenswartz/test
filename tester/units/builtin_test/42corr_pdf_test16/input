@@ -1,1 +1,0 @@
-test -L /var && echo ok || echo wrong

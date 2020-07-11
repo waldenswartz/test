@@ -1,1 +1,0 @@
-a=hello b=world; env | grep -E '(a|b)='

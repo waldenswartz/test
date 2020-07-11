@@ -1,2 +1,0 @@
-rm ~/.42sh_history 2>&-
-rm ~/.sh_history 2>&-

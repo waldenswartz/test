@@ -1,3 +1,0 @@
-bla=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-echo ${bla##aa}
-echo $?

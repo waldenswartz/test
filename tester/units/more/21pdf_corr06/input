@@ -1,2 +1,0 @@
-rm nosuchfile 2>&-
-rm nosuchfile 2>&1 | cat -e

@@ -1,1 +1,0 @@
-touch read noread; chmod u-r noread;test -r read && echo ok || echo wrong

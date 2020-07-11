@@ -1,3 +1,0 @@
-bla=aaaaaaaaaaaaaa
-echo ${bla%%aaa}
-echo $?

@@ -1,3 +1,0 @@
-bla=aaabbbccc
-echo ${bla%cc}
-echo $?
