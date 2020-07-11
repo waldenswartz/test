@@ -1,0 +1,230 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\deflang1036\deflangfe1036{\fonttbl{\f0\fcharset0 Times-Roman;}{\f1\fcharset0 Courier;}{\f2\fcharset0 HelveticaNeue;}}
+{\colortbl;\red0\green0\blue0;\red125\green125\blue125;}
+{\*\generator Wine Riched20 2.0;}
+\pard\sl-0\slmult1\sa280 \b\cf1\lang1036\fs28\f0 Partie obligatoire\par
+\pard\sl-0\slmult1\sa240 \b0\fs24 Rappel : si \'e0 un moment ou un autre, le programme ne r\'e9agit pas correctement (bus error, segfault, etc..), ou bien si vous d\'e9tectez une fuite m\'e9moire, la soutenance est termin\'e9e et la note est 0. Pensez \'e0 utiliser les flags correspondants quand cela est n\'e9cessaire. Cette consigne est active d'un bout \'e0 l'autre de la soutenance.\par
+\pard\sl-0\slmult1\sa319 \b Fichier auteur\par
+\pard\sl-0\slmult1\sa240 \b0 \u8232?V\'e9rifiez d'abord les \'e9l\'e9ments suivants :\'a0\u8232?\u8232?- Il y a bien un rendu (dans le d\'e9p\'f4t git)\'a0\u8232?- Fichier auteur valide\'a0\u8232?- Le Makefile est pr\'e9sent et compile bien l'ex\'e9cutable 42sh\'a0\u8232?- Pas de faute de norme, la Norminette faisant foi\'a0\u8232?- Pas de triche (fonctions non autoris\'e9es, les \'e9tudiants\'a0\u8232?doivent pouvoir expliquer leur code, ...)\'a0\u8232?\u8232?Si un \'e9l\'e9ment n'est pas conforme au sujet, la notation\'a0\u8232?s'arr\'eate la. Vous \'eates encourag\'e9s \'e0 continuer de d\'e9battre\'a0\u8232?du projet, mais le bar\'e8me n'est pas appliqu\'e9.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Fuites m\'e9moire\par
+\pard\sl-0\slmult1\sa240 \b0 Pendant toute la dur\'e9e de la soutenance, gardez un oeil sur les possibles\'a0\u8232?fuites m\'e9moire du 42sh (via cette commande dans un autre terminal par\'a0\u8232?exemple "while true; do leaks 42sh; sleep 1; clear; done".\'a0\u8232?Si leaks rapporte une fuite m\'e9moire, la note du projet est 0.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Pr\'e9requis du minishell\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer les pr\'e9requis du minishell.\'a0\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- Ex\'e9cutez une commande vide "$> ". Le shell ne doit rien faire et\'a0\u8232?r\'e9afficher le prompt.\'a0\u8232?\u8232?- Ex\'e9cutez une commande compos\'e9e uniquement d'un seul espace "$> ".\'a0\u8232?Le shell ne doit rien faire et r\'e9afficher le prompt.\'a0\u8232?\u8232?- Ex\'e9cutez une commande compos\'e9e uniquement d'espaces et de\'a0\u8232?tabulations. Le shell ne doit rien faire et r\'e9afficher le prompt.\'a0\u8232?\u8232?- Ex\'e9cutez une commande avec plusieurs espaces et tabulations\'a0\u8232?avant le nom du binaire, entre chaque argument pass\'e9 au\'a0\u8232?binaire, et apr\'e8s le dernier argument. Ces espaces et\'a0\u8232?tabulations inutiles ne doivent pas perturber l'\'e9x\'e9cution de\'a0\u8232?la commande.\'a0\u8232?\u8232?- Testez une commande (et/ou un built-in) avec des options inexistantes.\'a0\u8232?V\'e9rifiez que le retour de la commande n'est pas 0.\'a0\u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> doesnotexist\u8232?\{\{ Message d'erreur indiquant que la commande n'existe pas/est introuvable \}\}\u8232?$> echo $\{?\}\u8232?\{\{ Code de retour diff\'e9rent de 0 \}\}\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> /sbin/yubikey_shell\u8232?\{\{ Message d'erreur indiquant que la commande ne peut \'eatre ex\'e9cut\'e9 pour cause de permission insuffisante \}\}\u8232?$> echo $\{?\}\u8232?\{\{ Code de retour diff\'e9rent de 0 \}\}\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> /bin/ls\u8232?\{\{ Sortie de la commande "ls" \}\}\u8232?$> echo $\{?\}\u8232?0\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> ls\u8232?\{\{ Sortie de la commande "ls" \}\}\u8232?$> echo $\{?\}\u8232?0\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> /bin/ls -alF\u8232?\{\{ Sortie de la commande "ls" avec les arguments "alF" \}\}\u8232?$> echo $\{?\}\u8232?0\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> /bin/ls -l -a -F\u8232?\{\{ Sortie de la commande "ls" avec les arguments "alF" \}\}\u8232?$> echo $\{?\}\u8232?0\u8232?\f0 \u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Pr\'e9requis du 21sh\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer les pr\'e9requis du 21sh.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- V\'e9rifiez qu'il est possible de se d\'e9placer dans la ligne de commande\'a0\u8232?via divers raccour\'e7is et de l'\'e9diter \'e0 l'endroit du curseur.\'a0\u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 \u8232?$> ls > /tmp/ftsh_ls_out /\par
+$> cat /tmp/ftsh_ls_out \u8232?\{\{ Sortie de la commande "ls" sur la racine du syst\'e8me \}\}\par
+$> < /tmp/ftsh_ls_out cat -e >> /tmp/ftsh_ls_out\par
+$> cat /tmp/ftsh_ls_out \u8232?\{\{ 2 listing de la racine doivent appara\'eetre et le second doit avoir un $ \'e0 la fin de chaque ligne \}\}\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> echo 1 >out >&2 2>err\u8232?1\u8232?$> echo 2 >out 2>err\u8232?$> cat err\u8232?$> cat out\u8232?2\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> echo non-standard fd > dup_fd\u8232?$> cat 4\'a0non-standard fd$\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> cat <&4\u8232?\{\{ Message d'erreur indiquant que le descripteur de fichier est invalide \}\}\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> echo abc >redir_one_to_all\u8232?$> cat 9\'a0abc$\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> cat <&-\'a0abc\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> ls doesnotexist . 2>&1 >/dev/null\u8232?ls: doesnotexist: No such file or directory\u8232?$> ls doesnotexist . >/dev/null 2>&1\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> ls | sort -rn | cat -e\u8232?\{\{ Contenu du dossier courant, tri\'e9, avec un '$' a la fin de chaque ligne \}\}\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> base64 < /dev/urandom | head -c 1000 | grep 42 | wc -l | sed -e s/1/Yes/g -e s/0/No/g\u8232?\{\{ Affiche "Yes" ou "No" al\'e9atoirement \}\}\u8232?$> ps a | grep 'base64' | grep -v 'grep'\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> ls -1; touch test_file; ls -1\u8232?\{\{ Affichage des 2 'ls'. Un fichier suppl\'e9mentaire, "test_file", doit appara\'eetre dans la seconde sortie \}\}\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> exit 1 | exit 2 | exit 3; echo "stayin' alive"\u8232?stayin' alive\u8232?$>\u8232?\f0 \u8232?V\'e9rifier que le 42sh ne s'est pas termin\'e9 et que le prompt est\'a0\u8232?disponible.\'a0\u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> echo out >&-; echo out2\u8232?\{\{ Message d'erreur facultatif indiquant qu'il est impossible d'\'e9crire sur stdout \}\}\u8232?out2\u8232?$> echo out >&- | echo out2\u8232?\{\{ Message d'erreur facultatif indiquant qu'il est impossible d'\'e9crire sur stdout \}\}\u8232?out2\u8232?$> echo out >&- && echo out2\u8232?\{\{ Message d'erreur facultatif indiquant qu'il est impossible d'\'e9crire sur stdout \}\}\u8232?$> echo out >&- || echo out2\u8232?\{\{ Message d'erreur facultatif indiquant qu'il est impossible d'\'e9crire sur stdout \}\}\u8232?out2\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> cat << END\u8232?heredoc> hello world\u8232?heredoc> and good\u8232?heredoc> morning!\u8232?heredoc> END\u8232?hello world\u8232?and good\u8232?morning!\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> cat << EO\\\u8232?> F\u8232?heredoc> hi\u8232?heredoc> EOF\u8232?hi\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> cat > /tmp/heredoc-append << EOF\u8232?heredoc> abc\u8232?heredoc> EOF\u8232?$> cat -e >> /tmp/heredoc-append << EOF\u8232?heredoc> def\u8232?heredoc> ghi\u8232?heredoc> EOF\u8232?$> cat /tmp/heredoc-append\u8232?abc\u8232?def$\u8232?ghi$\u8232?$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\f1 \u8232?$> (cat <\'a0heredoc> abd\u8232?heredoc> abc\u8232?heredoc> abb\u8232?heredoc> EOF\u8232?abb$\u8232?abc$\u8232?abd$\u8232?$>\u8232?\f0 \u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Par exemple, vous pouvez tester des redirections \'e0 l'int\'e9rieur\'a0\u8232?des pipes.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Les built-ins\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer l'impl\'e9mentation des builtins "exit", "echo", "cd"\'a0\u8232?et "type".\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\par
+\f1 \u8232?$> echo abc; exit; echo def\u8232?abc\u8232?zsh\par
+%> echo $?\u8232?0\u8232?\f0 \u8232?\u8232?- \par
+Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\par
+\f1 \u8232?$> exit 999999999999999999999999999999999999999999\u8232?\f0 \u8232?\par
+V\'e9rifiez que le comportement du 42sh est coh\'e9rent et qu'aucun crash\'a0\u8232?ou comportement ind\'e9termin\'e9 ne se soit produit.\'a0\u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\u8232?\par
+\f1 \u8232?$> exit abc\u8232?\{\{ Message d'erreur indiquant qu'une valeur num\'e9rique est attendue \}\}\par
+\u8232?$> echo $\{?\}\u8232?\{\{ Code de retour diff\'e9rent de 0 \}\}\par
+\f0 \par
+Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 \u8232?$> exit 1 2 3\u8232?\{\{ Message d'erreur indiquant un trop grand nombre d'arguments \}\}\par
+\u8232?$> echo $\{?\}\u8232?\{\{ Code de retour diff\'e9rent de 0 \}\}\par
+\f0 \par
+ Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 $> cd \{\{ /absolute/path/of/your/choice \}\}\par
+$> pwd\u8232?\{\{ /absolute/path/of/your/choice \}\}\par
+\f0 \par
+Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 \u8232?$> cd relative/path/of/your/choice\par
+$> pwd\u8232?\{\{ relative/path/of/your/choice \}\}\par
+\par
+\f0 Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 $> cd /tmp\u8232?$> /bin/pwd\u8232?/tmp\par
+$> cd\par
+$> /bin/pwd\u8232?/Users/\{\{login_session\}\}\par
+\f0 \par
+Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 \u8232?$> cd /tmp\u8232?$> pwd\u8232?/tmp\u8232?$> cd /binpwd\par
+/bin\par
+$>cd -\par
+pwd\u8232?/tmp\par
+\f0  Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 $> cd -L /tmp; cd -P ..\par
+$> pwd\u8232?/private\par
+$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 $> type type ls \u8232?\{\{ Message indiquant que "type" est un builtin et "ls" une commande avec son path \}\}\par
+$>\u8232?\f0 \u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Vous pouvez par exemple tester le bon comportement\'a0\u8232?du built-in "cd" si la variable "CDPATH" est pr\'e9sente dans l'environnement.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Logical operators\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer l'implementation des op\'e9rateurs logique.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 $> ls -l && ls \u8232?\{\{ Affichage de la commande "ls" 2 fois avec des param\'e8tres differents \}\}\par
+$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 $> ls doesnotexist || echo 'Notice me senpai'\u8232?ls: doesnotexist: No such file or directory\u8232?Notice me senpai\par
+$> echo $\{?\}\u8232?0\par
+$>\u8232?\f0 \u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\line
+\f1 $> echo 'No error' || echo 'You cant see me'\u8232?No error\par
+$> echo $\{?\}\u8232?0\par
+\f0 Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 \u8232?$> false && echo foo || echo bar\u8232?bar\u8232?$> true || echo foo && echo bar\u8232?bar\f0 \par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Gestion de l'environnement\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer le support des variables internes et externes,\'a0\u8232?ainsi que l'impl\'e9mentation des builtins "set", "export" et "unset".\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- Ex\'e9cutez la commande suivante et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 $> a=hello b=world; b=42 echo $\{a\}_$\{b\} && echo $\{b\}\u8232?hello_world\u8232?world\par
+$> directory=/ ls_opt=-atr\u8232?$> ls $\{ls_opt\} $\{directory\}\par
+$> echo $\{empty\}|cat -e\par
+\u8232?$> set\u8232?\{\{ Ensemble des variables internes au shell et d'environnement \}\}\par
+\u8232?$> set | grep -E '(a|b)='\u8232?a=hello\u8232?b=world\u8232?$>\par
+\u8232?$> env\u8232?\{\{ Ensemble des variables d'environnement uniquement \}\}\par
+$> env | grep -E '(a|b)='\u8232?$>\f0 \par
+\f1 $> export b\u8232?$> printenv b\u8232?world\par
+$> ONESHOT= env | grep ONESHOT\u8232?ONESHOT=\u8232?\par
+$> env | grep ONESHOT\u8232?$>\par
+$> unset a b\u8232?$> env | grep -E '(a|b)='\u8232?$> set | grep -E '(a|b)='\par
+$> unset PATH\u8232?$> PATH=/bin:/usr/bin\u8232?$> mkdir testdir\u8232?$> echo $\{?\}\u8232?0\par
+\u8232?$> ls -1 | grep testdir\u8232?testdir\u8232?\par
+$> true; echo $\{?\}; false; echo $\{?\}\u8232?0\u8232?1\u8232?\f0 \par
+\pard\sl-0\slmult1 \par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Job control\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer l'impl\'e9mentation du job control.\'a0\u8232?\u8232?Le job control permet de controler les processus de mani\'e8re interactif\'a0\u8232?en permettant de placer des commandes en arri\'e8re-plan, de les stopper\'a0\u8232?et de les reprendre en avant-plan.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- Ex\'e9cutez les commandes suivantes et v\'e9rifiez que l'affichage est conforme:\'a0\par
+\f1 \u8232?$> mkfifo fifo\par
+\u8232?$> ls -lR /usr >fifo 2>&1 &\par
+$> jobs \u8232?\{\{ Message indiquant que la commande "ls" est en cours d'ex\'e9cution \}\}\par
+$> emacs -nw &\par
+$> emacs -nw &\par
+$> emacs -nw &\par
+$> emacs -nw &\par
+> emacs -nw &\par
+$> jobs\u8232?\{\{ Message indiquant que 5 instances d'emacs sont stopp\'e9s en arri\'e8re-plan \}\}\par
+\u8232?$> fg %\{\{ un des emacs job number \}\}\par
+\u8232?\f0 \u8232?Le processus Emacs doit revenir en premier-plan et \'eatre fonctionnel.\'a0\u8232?Recommencez autant de fois que n\'e9cessaire pour ramener tout les processus\'a0\u8232?"emacs".\'a0\par
+\f1 \u8232?$> jobs \u8232?\{\{ La commande "ls" lanc\'e9 plus haut doit \'eatre la seule restante \}\}\u8232?\par
+$> cat -e\'a0\{\{ Sortie de la commande "ls". N'attendez pas la fin, coupez l'affichage avec CTRL-C \}\}\par
+$> jobs\u8232?$>\par
+$> ls -Rl / 2>&1\par
+\{\{ Affichage de la commande "ls". N'attendez pas la fin, appuyez sur CTRL-Z \}\}\u8232?\{\{ Message indiquant que la commande est suspendue \}\}\par
+$> jobs\u8232?\{\{ Message indiquant que la commande est suspendue \}\}\par
+$> ps a | grep "ls -Rl /" | grep -v 'grep' | cut -d ' ' -f 2 \u8232?\{\{ PID de la commande "ls" du test pr\'e9c\'e9dent \}\}\par
+$> kill \{\{ PID de la commande "ls" du test pr\'e9c\'e9dent \}\}\par
+$> jobs\u8232?\{\{ Message indiquant que la commande s'est termin\'e9 \}\}\par
+$> jobs\u8232?$> ps a | grep "ls -Rl /" | grep -v 'grep'\f0 \par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Signaux\par
+\pard\sl-0\slmult1\sa240 \b0 Nous allons \'e9valuer la gestion des signaux.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?\u8232?- V\'e9rifiez que le shell g\'e8re correctement les signaux \'e9mis par ses enfants.\'a0\u8232?Pour cela vous pouvez utilisez la commande suivante:\'a0\par
+\f1 $> python -c 'import os, signal;os.kill(os.getpid(), signal.SIGSEGV)'\u8232?\{\{ Message indiquant le signal re\'e7u \}\}\par
+$>\u8232?\f0 \u8232?Remplacez "SIGSEGV" par le signal que vous voulez envoyer.\'a0\u8232?Testez tout les signaux!\'a0\u8232?Le shell ne doit en aucune fa\'e7on quitter si un de ses enfants se termine\'a0\u8232?par un signal, m\'eame si c'est un "SIGKILL".\'a0\u8232?\u8232?- V\'e9rifier que "CTRL-C" dans un prompt vide et avec une commande\'a0\u8232?r\'e9affiche bien un prompt vide.\'a0\u8232?\u8232?- Ex\'e9cutez la commande:\'a0\par
+\f1 $> cat\u8232?\f0 \u8232?Puis appuyez sur "CTRL-\\".\'a0\u8232?La commande "cat" doit se terminer avec un message qui indique le signal\'a0\u8232?re\'e7u et le prompt \'eatre disponible.\'a0\par
+\pard\sl-0\slmult1 \par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa120 \par
+\pard\sl-0\slmult1\sa280 \b\fs28 Partie modulaire\par
+\pard\sl-0\slmult1\sa240 \b0\fs24 Rappel : vous ne devez \'e9valuer la partie modulaire que si la partie obligatoire est PARFAITE. Il n'y a aucun int\'e9r\'eat \'e0 d\'e9velopper des fonctionnalit\'e9s exotiques sur un shell qui n'assure pas de mani\'e8re parfaite les fonctionnalit\'e9s de base ! Les tests pour les sections suivantes se trouvent dans des fichiers s\'e9par\'e9s. Vous devez effectuez tous les tests. Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e et vous passez \'e0 la suivante. Chaque fichier contient un transcript d'une session shell. Vous devez reproduire les commandes list\'e9es dans le fichier et vous assurer que l'affichage correspond \'e0 ce qui est attendu. Faites attention aux prompts pr\'e9sent dans les fichiers: - "$> " repr\'e9sente le prompt normal, en attente de commande - "> " repr\'e9sente une commande incompl\'e8te qui attend une entr\'e9e utilisateur ((heredoc, quote, dquote...)\par
+\pard\sl-0\slmult1\sa319 \b Inhibiteurs\par
+\pard\sl-0\slmult1\sa240 \b0 Dans cette section nous allons \'e9valuer la presence et le bon\'a0\u8232?fonctionnement des inhibiteurs """ (double quote), "\'92" (simple quote)\'a0\u8232?et "\\" (backslash).\'a0\u8232?\u8232?Un prompt "quote>" indique que le shell attend une entr\'e9e suppl\'e9mentaire\'a0\u8232?pour completer la commande courante.\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.quoting.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment.\'a0\u8232?\u8232?Vous pouvez par exemple tester ces commandes et v\'e9rifier que le\'a0\u8232?shell r\'e9agit de la m\'eame fa\'e7on que le shell de r\'e9f\'e9rence choisit par le groupe:\'a0\u8232?\f1 \u8232?$> echo foo\\\u8232?$> echo "\\\\'abcd\\\\'"\u8232?$> echo \\'\u8232?\f0 \par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Pattern Matching\par
+\pard\sl-0\slmult1\sa240 \b0 Dans cette section nous allons \'e9valuer le bon fonctionnement du globing\'a0\u8232?("*", "?", "[]", "-", "!").\'a0\u8232?Regardez dans les sources l'impl\'e9mentation du globbing,\'a0\u8232?la fonction glob(3) ne doit pas \'eatre utilis\'e9e.\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.pattern_matching.txt".\'a0\u8232?\u8232?\u8232?Faites \'e9galement vos propres tests!\'a0\u8232?Vous pouvez par exemple tester comment le shell se comporte si un \'e9l\'e9ment\'a0\u8232?du pattern est \'e9chapp\'e9 (avec "\\\\") ou si le pattern est entre inhibiteurs\'a0\u8232?("'")\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Expansion Suppl\'e9mentaire\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement des expansions du tilde et\'a0\u8232?des param\'e8tres.\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.expansions.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant l'expansion.\'a0\u8232?Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Commandes group\'e9s et sous-shells\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement des sous-shells et\'a0\u8232?commandes group\'e9es:\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.grouped_commands.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment.\'a0\u8232?Testez \'e9galement des erreurs de syntaxe, tel que:\'a0\u8232?\f1 \u8232?$> ()\u8232?$> (echo a|)\u8232?$> (; echo b)\u8232?$> (echo c; ())\u8232?\f0 \par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Substitution de commandes\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement de la substitution des commandes\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.command_sub.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant la\'a0\u8232?substitution de commande.\'a0\u8232?Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Expansion Arithm\'e9tique\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement des expansions arithm\'e9tique\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.exp_arithm.txt".\'a0\u8232?\u8232?\u8232?Testez \'e9galement que l'expansion s'effectue bien entre double quote ("\\"")\'a0\u8232?et non entre simple quote ("'"). Testez des valeurs incoh\'e9rentes, telles\'a0\u8232?que "9999999999999999999999999 + 1"\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Substitution de processus\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement de la substitution de processus\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.process_sub.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant la substitution\'a0\u8232?de processus.\'a0\u8232?Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Historique\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement de l'historique.\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.history.txt".\'a0\u8232?\u8232?En compl\'e9ment, effectuez les tests suivants:\'a0\u8232?\u8232?- Utilisez la commande "fc -l" pour obtenir l'historique des commandes\'a0\u8232?avec leurs index. Puis ex\'e9cutez une commande avec l'expansion "!".\'a0\u8232?V\'e9rifiez que la bonne commande s'ex\'e9cute\'a0\u8232?\u8232?- Idem qu'au-dessus mais cette fois avec l'expansion "!-".\'a0\u8232?V\'e9rifiez que la bonne commande s'ex\'e9cute\'a0\u8232?\u8232?- V\'e9rifiez que les commandes sont bien enregistr\'e9es dans un fichier.\'a0\u8232?Fermez et relancez le shell. Est-ce que l'historique de l'ancienne\'a0\u8232?session est accessible dans le nouveau shell ?\'a0\u8232?\u8232?- Ex\'e9cutez la commande:\'a0\u8232?\f1 \u8232?$> fc -e vim -1 -10\u8232?\f0 \u8232?V\'e9rifiez que les 10 derni\'e8res commandes sont pr\'e9sentes dans vim.\'a0\u8232?\'c9ditez-les si vous le souhaitez, sauvegardez et fermez vim.\'a0\u8232?Les commandes pr\'e9sentes dans vim \'e0 la fermeture doivent s'ex\'e9cuter.\'a0\u8232?\u8232?- V\'e9rifiez que la recherche incr\'e9mentale, via un le raccourci CTRL-R\'a0\u8232?(ou un autre) fonctionne.\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant historique\'a0\u8232?et son expansion.\'a0\u8232?Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Compl\'e9tion dynamique contextuelle\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement de la compl\'e9tion dynamique.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?- V\'e9rifiez que la compl\'e9tion des commandes dans le "PATH" fonctionne\'a0\u8232?\u8232?- Idem pour les builtins\'a0\u8232?\u8232?- V\'e9rifiez que la compl\'e9tion est bien contextuelle. Si vous avez\'a0\u8232?"ls /sbin/" sur la ligne de commande et que vous appuyez sur TAB\'a0\u8232?(ou n'importe quelle autre touche responsable de la compl\'e9tion) alors\'a0\u8232?seuls les fichiers pr\'e9sent dans le r\'e9pertoire "/sbin" doivent appara\'eetre.\'a0\u8232?\u8232?- Ex\'e9cutez les commandes:\'a0\u8232?\f1 \u8232?$> abc=def\u8232?$> echo $\{a\u8232?\f0 \u8232?V\'e9rifiez que la compl\'e9tion vous propose bien la variable "abc".\'a0\u8232?\u8232?- Ex\'e9cutez les commandes:\'a0\u8232?\f1 \u8232?$> unset a\u8232?$> echo $\{a\u8232?\f0 \u8232?V\'e9rifiez que la compl\'e9tion ne vous propose plus la variable "abc".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant la compl\'e9tion\'a0\u8232?dynamique.\'a0\u8232?Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Mode d'\'e9dition Vi/Readline\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement des modes d'\'e9dition Vi\'a0\u8232?et Readline.\'a0\u8232?\u8232?Si l'un au moins de ces tests \'e9choue, alors toute la section est \'e9chou\'e9e\'a0\u8232?et la correction s'arr\'eate. Effectuez les tests suivants:\'a0\u8232?- V\'e9rifiez qu'il est possible de changer de mode d'\'e9dition avec la\'a0\u8232?commande "set -o vi" ou "set -o readline"\'a0\u8232?\u8232?- V\'e9rifiez le bon fonctionnement de tout les raccourcis mentionn\'e9s\'a0\u8232?dans le sujet pour les 2 modes.\'a0\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant l'\'e9dition\'a0\u8232?de ligne. Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Built-ins alias/unalias\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement des alias\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.alias.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant les alias.\'a0\u8232?Soyez inventif !\'a0\u8232?Vous pouvez par exemple tester des noms d'alias invalides, comme "=", "-" ou "/".\'a0\u8232?Le shell doit afficher une erreur.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Table de hachage\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement de la table de hachage et\'a0\u8232?du builtin "hash"\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.hash.txt".\'a0\u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant la table\'a0\u8232?de hachage et le builtin "hash". Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Built-in test\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la presence et le bon fonctionnement du builtin "test"\'a0\u8232?\u8232?Les tests pour cette section se trouve dans le fichier "42sh.test.txt".\'a0\u8232?\u8232?En cas d'erreur interne, un code de retour sup\'e9rieur \'e0 1 est retourn\'e9.\'a0\u8232?V\'e9rifiez le et v\'e9rifiez la pr\'e9sence d'un message d'erreur.\'a0\u8232?Par exemple avec la commande:\'a0\u8232?\f1 \u8232?$> test zzz -eq; echo $?\u8232?\f0 \u8232?\u8232?\u8232?Ne vous contentez pas des tests de la correction, faites vos propres tests\'a0\u8232?en suppl\'e9ment. Il existe \'e9norm\'e9ment de tests possibles concernant la table\'a0\u8232?de hachage et le builtin "test". Soyez inventif !\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa120 \par
+\pard\sl-0\slmult1\sa280 \b\fs28 Bonus\par
+\pard\sl-0\slmult1\sa240 \b0\fs24 \par
+\pard\sl-0\slmult1\sa319 \b Shell script\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la pr\'e9sence et le bon fonctionnement du shell script.\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b Autocompletion des param\'e8tres\par
+\pard\sl-0\slmult1\sa240 \b0 Testez la pr\'e9sence et le bon fonctionnement de l'autocompletion des\'a0\u8232?param\'e8tres\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b POSIX\par
+\pard\sl-0\slmult1\sa240 \b0 Bon courage pour tester la conformit\'e9 \'e0 la norme POSIX :)\par
+\pard\sl-0\slmult1 \par
+\par
+\'a0Yes\'a0\'a0No\par
+\pard\sl-0\slmult1\sa319 \b D'autres fonctionnalit\'e9es\par
+\pard\sl-0\slmult1\sa240 \b0 Si le 42sh a des fonctionnalit\'e9es suppl\'e9mentaires,\'a0\u8232?comptabilisez-les ici. Vous pouvez comptabiliser jusqu'\'e0 5\'a0\u8232?fonctionnalit\'e9es bonus. Les bonus doivent \'eatre 100%\'a0\u8232?fonctionnels et ne pas mettre en cause la stabilit\'e9 du shell.\par
+\pard\sl-0\slmult1 \par
+\par
+Rate it from 0 (failed) through 5 (excellent)\par
+\cf2\fs22\f2 \par
+\cf1\fs24\f0 \par
+\par
+} 
